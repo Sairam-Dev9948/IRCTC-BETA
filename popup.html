@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>IRCTC Autofill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <h2>IRCTC Autofill</h2>
+    <p class="hint">Save each passenger, then autofill them in order. The extension verifies all passengers are listed before calculating fare, waits for fare calculation to finish, and continues to payment without entering payment credentials.</p>
+
+    <section aria-label="Add passenger profile">
+      <label>Passenger name
+        <input id="name" autocomplete="off">
+      </label>
+
+      <label>Age
+        <input id="age" type="number" min="1" max="120">
+      </label>
+
+      <label>Gender
+        <select id="gender">
+          <option value="">Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Transgender">Transgender</option>
+        </select>
+      </label>
+
+      <label>Berth preference
+        <select id="berth">
+          <option value="">No Preference</option>
+          <option value="Lower">Lower</option>
+          <option value="Middle">Middle</option>
+          <option value="Upper">Upper</option>
+          <option value="Side Lower">Side Lower</option>
+          <option value="Side Upper">Side Upper</option>
+        </select>
+      </label>
+
+      <label>Nationality
+        <input id="nationality" value="India">
+      </label>
+
+      <button id="save">Add passenger to saved list</button>
+    </section>
+
+    <section aria-label="Saved passengers">
+      <h3>Saved passengers</h3>
+      <ol id="profiles" aria-live="polite"></ol>
+    </section>
+
+    <button id="fill" class="primary">Auto Fill All Passengers</button>
+    <button id="clear" class="danger">Clear saved passengers</button>
+    <div id="status" role="status" aria-live="polite"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

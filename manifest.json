@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "IRCTC Beta Passenger Autofill",
+  "version": "2.1.0",
+  "description": "Saves and adds multiple passenger profiles, selects Pay through BHIM/UPI, calculates fare, and continues to payment. Does not handle CAPTCHA, passwords, or payment credentials.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "https://beta.irctc.co.in/*",
+    "https://www.irctc.co.in/*"
+  ],
+  "action": {
+    "default_title": "IRCTC Autofill",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://beta.irctc.co.in/*",
+        "https://www.irctc.co.in/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {}
+}
